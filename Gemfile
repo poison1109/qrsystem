@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+# # Use SCSS for stylesheets
+# gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -38,3 +38,18 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'carrierwave'
+gem 'simple_form'
+gem 'twitter-bootstrap-rails'
+gem 'less-rails'
+gem 'therubyracer'
+
+gem 'rqrcode'
+gem 'rqrcode_png'
+gem 'chunky_png'
+gem 'pry-rails'
+gem 'pry-doc'
+
+gem 'devise'
+
+gem 'streamio-ffmpeg'
