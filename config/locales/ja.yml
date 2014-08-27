@@ -193,9 +193,10 @@ ja:
       short: ! '%y/%m/%d %H:%M'
     pm: 午後
 
-activerecord:
-  attributes:
-    video:
-      name: 'ユーザー名'
-      stert_date: '利用開始日'
-      url: '動画アップロード'
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
