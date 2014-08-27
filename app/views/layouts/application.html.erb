@@ -46,15 +46,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">QRsystem</a>
+          <!-- <a class="brand" href="#">QRsystem</a> -->
+          <%= link_to "QRsystem", root_path, {:class => "brand" } %>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
             <% if user_signed_in? %>
-              <li><%= link_to "動画一覧", "/path1"  %></li>
-              <li><%= link_to "新規作成", "/path2"  %></li>
-              <li><%= link_to "アカウント詳細", "/path3"  %></li>
-              <% if user.id == 1 %>
-              <li><%= link_to "アカウント作成", "/path4"  %></li>
+              <li><%= link_to "動画一覧",user_videos_path(current_user.id)  %></li>
+              <li><%= link_to "新規作成",new_user_video_path(current_user.id) %></li>
+              <li><%= link_to "アカウント詳細",edit_user_registration_path  %></li>
+              <li></li>
+              <% if current_user.admin_flag == 1 %>
+                <li><%= link_to "アカウント一覧",users_path  %></li>
+                <li><%= link_to "アカウント作成",new_user_registration_path  %></li>
               <% end %>
             <% end %>  
             </ul>
@@ -73,7 +76,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; TokyoSmith 2014</p>
       </footer>
 
     </div> <!-- /container -->

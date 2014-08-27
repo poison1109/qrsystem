@@ -53,3 +53,7 @@ gem 'pry-doc'
 gem 'devise'
 
 gem 'streamio-ffmpeg'
+
+gem 'ransack'
+gem 'rails-erd'
+gem 'kaminari'

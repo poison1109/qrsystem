@@ -1,0 +1,73 @@
+<%= search_form_for @search, url: user_videos_path(params[:user_id]) do |f| %>
+  <%= f.label :name, '名前' %>
+  <%= f.text_field :name_cont %>
+  <div><%= f.submit '検索' %></div>
+<% end %>
+
+<%= form_tag :action => 'plural_destroy' do %>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th colspan="1"></th>
+        <th><%= sort_link(@search, :id, 'ID') %></th>
+        <th><%= sort_link(@search, :name, '動画名') %></th>
+        <th><%= sort_link(@search, :updated_at, 'アップロード日') %></th>
+        <th><%= sort_link(@search, :updated_at, '更新日') %></th>
+        <th><%= sort_link(@search, :created_at, '利用開始日') %></th>
+        <th><%= sort_link(@search, :url, '動画URL') %></th>
+        <th>QRコード</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if current_user.admin_flag == 1 %>
+        <% @all_videos.each do |video| %>
+          <tr>
+            <td>
+              <%= hidden_field_tag("video[][id]", video.id) %>
+              <%= check_box_tag("video[][delete_check]", true, video.delete_check) %>
+            </td>
+            <td><%= video.id %></td>
+            <td><%= video.name %></td>
+            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= link_to video.url %></td>
+            <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <% @videos.each do |video| %>
+          <tr>
+            <td></td>
+            <td><%= video.id %></td>
+            <td><%= video.name %></td>
+            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= link_to video.url %></td>
+            <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <% if @user.admin_flag == 1 && @all_videos.empty? == false %>
+    <%= submit_tag "削除", :confirm => "本当に削除しますか？" %>
+    <%= paginate @all_videos %>
+  <% else %>
+    <%= paginate @videos %>
+  <% end %>
+<% end %>
+
+
+
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  <strong><%= current_user.email %></strong>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% end %>
