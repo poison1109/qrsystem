@@ -1,23 +1,4 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-<!-- 
-<table>
-  <tr>
-    <td>ユーザー名</td>
-    <td><%= current_user.name %></td>
-  </tr>
-  <tr>
-    <td>会社名</td>
-    <td><%= current_user.corporation %></td>
-  </tr>
-  <tr>
-    <td>担当者名</td>
-    <td><%= current_user.owner %></td>
-  </tr>
-  <tr>
-    <td>メール</td>
-    <td><%= current_user.email %></td>
-  </tr>
-</table> -->
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -29,12 +10,12 @@
     <%= f.input :owner, :readonly => true, :label => "担当者名" %>
     <%= f.input :email, :readonly => true, :label => "メール" %>
     <p class="label label-important">※パスワードを変更する場合は以下の3つの項目を入力してください</p>
-    <%= f.input :password, autocomplete: "off", :label => '現在のパスワード' %>
-    <%= f.input :password_confirmation, required: false, :label => 'パスワードの確認' %>
-    <%= f.input :current_password, :label => '新しいパスワード' %>
+    <%= f.input :current_password, :label => '現在のパスワード' %>
+    <%= f.input :password, autocomplete: "off", :label => '新しいパスワード' %>
+    <%= f.input :password_confirmation, required: false, :label => '新しいパスワード(確認)' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "更新" %>
   </div>
 <% end %>

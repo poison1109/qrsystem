@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :videos
+
+  validates_presence_of  :name, :corporation, :owner, :email, :password, :password_confirmation
 end
