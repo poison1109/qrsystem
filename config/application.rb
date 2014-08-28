@@ -21,5 +21,7 @@ module Qrsystem
     I18n.available_locales = [:en, :ja]
     I18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
+    # For Heroku
+    config.assets.initialize_on_precompile = false
   end
 end
