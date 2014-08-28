@@ -14,7 +14,7 @@
         <th><%= sort_link(@search, :name, '動画名') %></th>
         <th><%= sort_link(@search, :updated_at, 'アップロード日') %></th>
         <th><%= sort_link(@search, :updated_at, '更新日') %></th>
-        <th><%= sort_link(@search, :created_at, '利用開始日') %></th>
+        <th><%= sort_link(@search, :start_date, '利用開始日') %></th>
         <th><%= sort_link(@search, :url, '動画URL') %></th>
         <th>QRコード</th>
       </tr>
@@ -32,7 +32,7 @@
             <td><%= video.name %></td>
             <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
             <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
-            <td><%= video.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.start_date %></td>
             <td><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
           </tr>
@@ -45,7 +45,7 @@
             <td><%= video.name %></td>
             <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
             <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
-            <td><%= video.created_at.strftime("%Y/%m/%d") %></td>
+            <td><%= video.start_date %></td>
             <td><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
           </tr>

@@ -8,10 +8,10 @@ class VideosController < ApplicationController
     if @user.admin_flag != 1
       @search = @user.videos.search(params[:q])
       # binding.pry
-      @videos = @search.result.page(params[:page]).per(3)
+      @videos = @search.result.page(params[:page]).per(10)
     else
       @search = Video.search(params[:q])
-      @all_videos = @search.result.page(params[:page]).per(3)
+      @all_videos = @search.result.page(params[:page]).per(10)
     end
   end
 
@@ -100,6 +100,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:name, :url, :user_id, id: [])
+      params.require(:video).permit(:name, :start_date, :url, :user_id, id: [])
     end
 end
