@@ -56,8 +56,11 @@
 
   <br>
 
-  <% if @user.admin_flag == 1 && @all_videos.empty? == false %>
+  <% if @all_videos.empty? == false %>
     <%= submit_tag "削除", :confirm => "本当に削除しますか？" %>
+  <% end %>
+  
+  <% if @user.admin_flag == 1 %>
     <%= paginate @all_videos %>
   <% else %>
     <%= paginate @videos %>
