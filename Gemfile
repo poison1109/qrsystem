@@ -48,7 +48,7 @@ gem 'spring',        group: :development
 
 gem 'carrierwave'
 gem 'simple_form'
-gem 'twitter-bootstrap-rails', '~> 3.2.0'
+gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 gem 'therubyracer'
 
