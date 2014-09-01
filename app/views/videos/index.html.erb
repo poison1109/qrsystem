@@ -21,7 +21,7 @@
     </thead>
 
     <tbody>
-      <% if current_user.admin_flag == 1 %>
+      <% if @user.admin_flag == 1 %>
         <% @all_videos.each do |video| %>
           <tr>
             <td>
@@ -56,14 +56,20 @@
 
   <br>
 
-  <% if @all_videos.empty? == false %>
-    <%= submit_tag "削除", :confirm => "本当に削除しますか？" %>
-  <% end %>
+
   
   <% if @user.admin_flag == 1 %>
+
+    <% if @all_videos.empty? == false %>
+      <%= submit_tag "削除", :confirm => "本当に削除しますか？" %>
+    <% end %>
+
     <%= paginate @all_videos %>
+
   <% else %>
+
     <%= paginate @videos %>
+
   <% end %>
 <% end %>
 

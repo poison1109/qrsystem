@@ -2,16 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     prepend_before_filter :require_no_authentication, :only => [ :cancel]
     prepend_before_filter :authenticate_scope!, :only => [:new, :create ,:edit, :update, :destroy]
 
-      # GET /resource/sign_up
-  def new
-    build_resource({})
-    @validatable = devise_mapping.validatable?
-    if @validatable
-      @minimum_password_length = resource_class.password_length.min
-    end
-    respond_with self.resource
-  end
-
   # POST /resource
   def create
     build_resource(sign_up_params)

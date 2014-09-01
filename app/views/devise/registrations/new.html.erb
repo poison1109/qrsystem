@@ -7,9 +7,9 @@
   	<%= f.input :name, :label => "ユーザー名" %>
   	<%= f.input :corporation, :label => "会社名" %>
   	<%= f.input :owner, :label => "担当者" %>
-    <%= f.input :email, :label => "メールアドレス" %>
-    <%= f.input :password, :label => "パスワード" %>
-    <%= f.input :password_confirmation, :label => "パスワード確認" %>
+    <%= f.input :email, :required => true, :label => "メールアドレス" %>
+    <%= f.input :password, :required => true, :label => "パスワード" %>
+    <%= f.input :password_confirmation, :required => true, :label => "パスワード確認" %>
   </div>
 
   <div class="form-actions">
