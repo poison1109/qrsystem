@@ -41,5 +41,8 @@ SimpleForm.setup do |config|
   # Check the Bootstrap docs (http://twitter.github.com/bootstrap)
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
+  config.form_class = "form-horizontal"
+  config.label_class = "col-xs-12 col-sm-12 col-md-12 col-lg-12 control-label"
+  #config.input_class = "form-control" #not yet supported
   config.default_wrapper = :bootstrap
 end
