@@ -50,7 +50,7 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: '更新されました。' }
+        format.html { redirect_to user_videos_path(:user_id => @user.id), notice: '更新されました。' }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class VideosController < ApplicationController
     qr = RQRCode::QRCode.new( @video.url.to_s, :size => 8, :level => :h )
 
     #200×200にリサイズして「hello_world.png」というファイル名で保存する
-    qr.to_img.resize(200, 200).save("app/assets/images/qr" + @video.id.to_s + ".png")
+    qr.to_img.resize(200, 200).save("app/assets/images/" + @video.name + @video.id.to_s + ".png")
 
   end
 

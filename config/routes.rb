@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, :only => :index do
-    resources :videos, :only => [:index, :new, :create, :update, :destroy] do
+    resources :videos, :only => [:index, :new, :edit, :create, :update, :destroy] do
       member do
         get 'qr'
       end

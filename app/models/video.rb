@@ -3,5 +3,7 @@ class Video < ActiveRecord::Base
 	mount_uploader :url, UrlUploader
 	attr_accessor :delete_check
 
-  	validates_presence_of  :name, :start_date, :url
+  	validates :name, presence: :true
+  	validates :start_date, :presence => {:message => 'は必須です。'}
+  	validates :url, :presence => {:message => 'は必須です。'}
 end

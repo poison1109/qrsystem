@@ -29,9 +29,9 @@
               <%= check_box_tag("video[][delete_check]", true, video.delete_check) %>
             </td>
             <td><%= video.id %></td>
-            <td><%= video.name %></td>
-            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
-            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= link_to video.name, edit_user_video_path(@user, video) %></td>
+            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
+            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
             <td><%= video.start_date %></td>
             <td><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
@@ -42,9 +42,9 @@
           <tr>
             <td></td>
             <td><%= video.id %></td>
-            <td><%= video.name %></td>
-            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
-            <td><%= video.updated_at.strftime("%Y/%m/%d") %></td>
+            <td><%= link_to video.name, edit_user_video_path(@user, video) %></td>
+            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
+            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
             <td><%= video.start_date %></td>
             <td><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
