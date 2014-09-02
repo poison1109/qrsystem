@@ -13,4 +13,13 @@
  *= require_tree .
  *= require_self
  *= require bootstrap_and_overrides
+<<<<<<< HEAD
  */
+=======
+ */
+
+ 
+select{
+  width: auto;
+}
+>>>>>>> d6122ce91f30461a430ed1a26e83b2f77d4fc573
