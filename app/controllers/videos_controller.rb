@@ -23,6 +23,7 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = @user.videos.build
+    @video.start_date = Time.now.strftime("%Y-%m-%d")
   end
 
   # GET /videos/1/edit

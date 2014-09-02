@@ -1,8 +1,10 @@
+
 <% if current_user.admin_flag == 1 %>
 
-<%= search_form_for @search do |f| %>
-  <%= f.label :name, '名前' %>
-  <%= f.text_field :name_cont %>
+<%= search_form_for @search, url: users_path do |f| %>
+  <%= f.label :videos_start_date, '利用開始日' %>
+  <%= f.date_select :videos_start_date_gteq, include_blank: true, :start_year => Time.now.year-1 %>〜
+  <%= f.date_select :videos_start_date_lteq, include_blank: true, :start_year => Time.now.year-1 %>
   <div><%= f.submit '検索' %></div>
 <% end %>
 
@@ -10,11 +12,11 @@
   <thead>
     <tr>
       <th><%= sort_link(@search, :id, 'ID') %></th>
-      <th><%= sort_link(@search, :name, 'ユーザー名') %></th>
-      <th><%= sort_link(@search, :corporation, '会社名') %></th>
-      <th><%= sort_link(@search, :owner, '担当者名') %></th>
-      <th><%= sort_link(@search, :email, 'メールアドレス') %></th>
-      <th><%= sort_link(@search, :videos, '動画アップ数') %></th>
+      <th>ユーザー名</th>
+      <th>会社名</th>
+      <th>担当者名</th>
+      <th>メールアドレス</th>
+      <th><%= sort_link(@search, :videos_count, '動画アップ数') %></th>
     </tr>
   </thead>
 
@@ -34,6 +36,8 @@
 <% end %>
 
 <br>
+
+<%= paginate @users %>
 
 <p class="navbar-text pull-right">
 <% if user_signed_in? %>
