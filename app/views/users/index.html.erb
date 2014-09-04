@@ -13,8 +13,8 @@
     <tr>
       <th><%= sort_link(@search, :id, 'ID') %></th>
       <th>ユーザー名</th>
-      <th>会社名</th>
-      <th>担当者名</th>
+      <th class="mobile">会社名</th>
+      <th class="mobile">担当者名</th>
       <th>メールアドレス</th>
       <th><%= sort_link(@search, :videos_count, '動画アップ数') %></th>
     </tr>
@@ -25,8 +25,8 @@
       <tr>
         <td><%= user.id %></td>
         <td><%= user.name %></td>
-        <td><%= user.corporation %></td>
-        <td><%= user.owner %></td>
+        <td class="mobile"><%= user.corporation %></td>
+        <td class="mobile"><%= user.owner %></td>
         <td><%= user.email %></td>
         <td><%= user.videos.count %></td>
       </tr>

@@ -9,7 +9,7 @@
     <%= f.input :corporation, :readonly => true, :label => "会社名" %>
     <%= f.input :owner, :readonly => true, :label => "担当者名" %>
     <%= f.input :email, :readonly => true, :label => "メール" %>
-    <p class="label label-important">※パスワードを変更する場合は以下の3つの項目を入力してください</p>
+    <p class="label label-important mobile">※パスワードを変更する場合は以下の3つの項目を入力してください</p>
     <%= f.input :current_password, :label => '現在のパスワード' %>
     <%= f.input :password, autocomplete: "off", :label => '新しいパスワード' %>
     <%= f.input :password_confirmation, required: false, :label => '新しいパスワード(確認)' %>
