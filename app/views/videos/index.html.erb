@@ -14,13 +14,13 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th colspan="1"></th>
+        <th colspan="1" class="mobile"></th>
         <th><%= sort_link(@search, :id, 'ID') %></th>
         <th><%= sort_link(@search, :name, '動画名') %></th>
-        <th><%= sort_link(@search, :created_at, 'アップロード日') %></th>
-        <th><%= sort_link(@search, :updated_at, '更新日') %></th>
+        <th class="mobile"><%= sort_link(@search, :created_at, 'アップロード日') %></th>
+        <th class="mobile"><%= sort_link(@search, :updated_at, '更新日') %></th>
         <th><%= sort_link(@search, :start_date, '利用開始日') %></th>
-        <th><%= sort_link(@search, :url, '動画URL') %></th>
+        <th class="mobile"><%= sort_link(@search, :url, '動画URL') %></th>
         <th>QRコード</th>
       </tr>
     </thead>
@@ -29,16 +29,16 @@
       <% if @user.admin_flag == 1 %>
         <% @all_videos.each do |video| %>
           <tr>
-            <td>
+            <td class="mobile">
               <%= hidden_field_tag("video[][id]", video.id) %>
               <%= check_box_tag("video[][delete_check]", true, video.delete_check) %>
             </td>
             <td><%= video.id %></td>
             <td><%= link_to video.name, edit_user_video_path(@user, video) %></td>
-            <td><%= video.created_at.strftime("%Y-%m-%d") %></td>
-            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
+            <td class="mobile"><%= video.created_at.strftime("%Y-%m-%d") %></td>
+            <td class="mobile"><%= video.updated_at.strftime("%Y-%m-%d") %></td>
             <td><%= video.start_date %></td>
-            <td><%= link_to video.url %></td>
+            <td class="mobile"><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
           </tr>
         <% end %>
@@ -48,10 +48,10 @@
             <td></td>
             <td><%= video.id %></td>
             <td><%= link_to video.name, edit_user_video_path(@user, video) %></td>
-            <td><%= video.created_at.strftime("%Y-%m-%d") %></td>
-            <td><%= video.updated_at.strftime("%Y-%m-%d") %></td>
+            <td class="mobile"><%= video.created_at.strftime("%Y-%m-%d") %></td>
+            <td class="mobile"><%= video.updated_at.strftime("%Y-%m-%d") %></td>
             <td><%= video.start_date %></td>
-            <td><%= link_to video.url %></td>
+            <td class="mobile"><%= link_to video.url %></td>
             <td><%= link_to '表示', qr_user_video_path(@user, video) %></td>
           </tr>
         <% end %>
