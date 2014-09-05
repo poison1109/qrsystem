@@ -5,7 +5,7 @@
   <%= f.label :videos_start_date, '利用開始日' %>
   <%= f.date_select :videos_start_date_gteq, include_blank: true, :start_year => Time.now.year-1 %>〜
   <%= f.date_select :videos_start_date_lteq, include_blank: true, :start_year => Time.now.year-1 %>
-  <div><%= f.submit '検索' %></div>
+  <div><%= f.submit '検索', :class => 'form-actions' %></div>
 <% end %>
 
 <table class="table table-bordered table-striped">
