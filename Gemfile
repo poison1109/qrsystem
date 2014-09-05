@@ -48,7 +48,7 @@ gem 'spring',        group: :development
 
 gem 'carrierwave'
 gem 'simple_form'
-gem 'twitter-bootstrap-rails'
+gem "twitter-bootstrap-rails", github: "seyhunak/twitter-bootstrap-rails", branch: "bootstrap3"
 gem 'less-rails'
 gem 'therubyracer'
 

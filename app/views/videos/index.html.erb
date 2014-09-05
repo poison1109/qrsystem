@@ -1,8 +1,9 @@
 
 <%= search_form_for @search, url: user_videos_path(params[:user_id]) do |f| %>
-  <%= f.label :name, '名前' %>
-  <%= f.text_field :name_cont %>
-
+  <div class="form-group">
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name_cont, :class => 'form-control' %>
+  </div>
   <%= f.label :start_date, '利用開始日' %>
   <%= f.date_select :start_date_gteq, include_blank: true, :start_year => Time.now.year-1 %>〜
   <%= f.date_select :start_date_lteq, include_blank: true, :start_year => Time.now.year-1 %>

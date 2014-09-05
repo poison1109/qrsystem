@@ -38,19 +38,17 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <!-- <a class="brand" href="#">QRsystem</a> -->
-          <%= link_to "QRsystem", root_path, {:class => "brand" } %>
-          <% if user_signed_in? %>
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-            <div class="container-fluid nav-collapse">
-              <ul class="nav">
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <%= link_to "QRsystem", root_path, {:class => "navbar-brand" } %>
+        <% if user_signed_in? %>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+              <ul class="nav navbar-nav">
                 <li><%= link_to "動画一覧",user_videos_path(current_user.id)  %></li>
                 <li><%= link_to "新規作成",new_user_video_path(current_user.id) %></li>
                 <li><%= link_to "アカウント詳細",edit_user_registration_path  %></li>
@@ -60,22 +58,21 @@
                   <li><%= link_to "アカウント作成",new_user_registration_path  %></li>
                 <% end %>  
               </ul>
-            </div><!--/.nav-collapse -->
-          <% end %>
-        </div>
+         </div>
+        <% end %>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span9">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
       </div><!--/row-->
 
       <footer>
-        <p>&copy; 常磐写真用品 2014</p>
+        <p>&copy; 常磐写真 2014</p>
       </footer>
 
     </div> <!-- /container -->

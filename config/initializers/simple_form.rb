@@ -40,10 +40,9 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     ## Inputs
-    b.use :label
-    b.use :input, :wrap_with => { :tag => 'div', :class => 'controls col-xs-12 col-sm-12 col-md-12 col-lg-12' }
-    b.use :error, :wrap_with => { :tag => 'span', :class => 'help-block' }
-    b.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
+    b.use :label_input
+    b.use :hint,  wrap_with: { tag: :span, class: :hint }
+    b.use :error, wrap_with: { tag: :span, class: :error }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -99,7 +98,7 @@ SimpleForm.setup do |config|
   config.label_class = 'control-label'
 
   # You can define the class to use on all forms. Default is simple_form.
-  config.form_class = 'simple_form form-horizontal'
+  # config.form_class = :simple_form
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
