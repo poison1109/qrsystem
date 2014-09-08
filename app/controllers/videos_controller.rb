@@ -84,6 +84,11 @@ class VideosController < ApplicationController
       if video["delete_check"]
         to_destroy_video = Video.find(video["id"])
         to_destroy_video.destroy
+        filename = "app/assets/images/" + to_destroy_video.name + to_destroy_video.id.to_s + ".png"
+        # binding.pry
+        if File.exist? filename
+          File.unlink filename
+        end
       end
     end
     redirect_to user_videos_path(:user_id => @user.id)
